@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build script for "workstation" Dockerfile
+# Build script for "lamp" Dockerfile
 
 # delete old container (if applicable)
 docker rm workstation
