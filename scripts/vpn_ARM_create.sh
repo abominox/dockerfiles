@@ -6,4 +6,4 @@ docker run -v vpn:/etc/openvpn --rm giggio/openvpn-arm ovpn_genconfig -u udp://C
 
 docker run -v vpn:/etc/openvpn --rm -it giggio/openvpn-arm ovpn_initpki nopass
 
-docker run -v vpn:/etc/openvpn -d --name openvpn -p 1194:1194/udp --cap-add=NET_ADMIN giggio/openvpn-arm
+docker run -v --restart=always vpn:/etc/openvpn -d --name openvpn -p 1194:1194/udp --cap-add=NET_ADMIN giggio/openvpn-arm

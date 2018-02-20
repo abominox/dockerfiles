@@ -2,7 +2,7 @@
 
 docker run -it \
 --name splunk \
---restart=unless-stopped \
+--restart=always \
 --hostname splunk \
 -p 8000:8000  \
 -p 9997:9997 \
