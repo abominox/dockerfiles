@@ -8,4 +8,4 @@ docker run -d \
 -e ServerIP="${IP}" \
 -e ServerIPv6="${IPv6}" \
 --restart=always \
-diginc/pi-hole:latest
+diginc/pi-hole-multiarch:debian_armhf
