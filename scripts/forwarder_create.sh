@@ -5,7 +5,8 @@
 
 docker volume create splunk_forwarder
 
-docker run --name splunkuniversalforwarder \
+docker run \
+--name splunkuniversalforwarder \
 --restart=always
 --env SPLUNK_START_ARGS=--accept-license \
 --env SPLUNK_FORWARD_SERVER=192.168.1.3:9997 \
