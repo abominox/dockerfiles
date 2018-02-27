@@ -6,6 +6,7 @@
 docker volume create splunk_forwarder
 
 docker run \
+-d \
 --name splunkuniversalforwarder \
 --restart=always
 --env SPLUNK_START_ARGS=--accept-license \
