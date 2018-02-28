@@ -1,6 +1,8 @@
 #!/bin/sh
 
-docker create --name=rutorrent \
+docker run \
+-d \
+--name=rutorrent \
 --restart=always \
 -v rutorrent:/config \
 -v /mnt/mdrive/torrents:/downloads \
