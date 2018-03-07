@@ -1,8 +1,8 @@
 #!/bin/bash
-# Build script for "you-get_frontend" Dockerfile
+# Build script for "workstation" Dockerfile
 
 # delete old container (if applicable)
-docker rm you_get_frontend
+docker rm workstation
 
 # remove all untagged images
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
@@ -13,10 +13,8 @@ docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 
 # build docker container
 #docker build -t workstation:latest -f ~/home/raxemremy/projects/dockerfiles/workstation .
-cd /home/raxemremy/projects/dockerfiles/containers/you-get_frontend
-docker build -t you-get_frontend:latest .
+cd /home/raxemremy/projects/dockerfiles/workstation
+docker build -t workstation:latest .
 
 # run new container with settings
-docker run -d \
---name you-get_frontend
--p 80:80 \
+docker run --user raxemremy --hostname workstation --name workstation -it workstation
