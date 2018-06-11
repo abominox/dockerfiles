@@ -1,4 +1,0 @@
-This script can produce the client configuration in to formats:
-    1. combined (default): All needed configuration and cryptographic material is in one file (Use "combined-save" to write the configuration file in the same path as the separated parameter does).
-    2. separated: Separated files.
-Please specific one of those options as second parameter.
