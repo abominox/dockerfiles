@@ -1,0 +1,43 @@
+# docker-compose file for the Jackett/Radarr/Sonarr holy trifecta of automated HTPC goodness
+
+version: 3
+services:
+    jackett:
+        container_name: jackett
+        restart: unless-stopped
+        volumes:
+            - '/home/raxemremy/container_files/jackett:/config'
+            - '/mnt/torrents:/downloads'
+            - '/etc/localtime:/etc/localtime:ro'
+        environment:
+            - PGID=1000
+            - PUID=1000
+        image: linuxserver/jackett
+    sonarr:
+        container_name: sonarr
+        restart: unless-stopped
+        ports:
+            - '8989:8989'
+        environment:
+            - PUID=1000
+            - PGID=1000
+        volumes:
+            - '/etc/localtime:/etc/localtime:ro'
+            - '/home/raxemremy/container_files/sonarr:/config'
+            - '/mnt/mdrive/videos:/tv'
+            - '/mnt/torrents:/downloads'
+        image: linuxserver/sonarr
+    radarr:
+        container_name: radarr
+        restart: unless-stopped
+        volumes:
+            - '/home/raxemremy/container_files/radarr:/config'
+            - '/mnt/torrents:/downloads'
+            - '/mnt/mdrive/videos/movies:/movies'
+            - '/etc/localtime:/etc/localtime:ro'
+        environment:
+            - PGID=1000
+            - PUID=1000
+        ports:
+            - '7878:7878'
+        image: linuxserver/radarr
