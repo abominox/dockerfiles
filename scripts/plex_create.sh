@@ -7,7 +7,7 @@ docker run -d \
 -e VERSION=latest \
 -e PUID="1000" -e PGID="1000" \
 -e TZ="America/New_York" \
--v /home/raxemremy/container_files/lib_data:/config \
+-v plex_test:/config \
 -v /mnt/mdrive:/data \
 -v plex_transcode:/transcode \
 linuxserver/plex
