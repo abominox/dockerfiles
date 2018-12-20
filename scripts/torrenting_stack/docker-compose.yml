@@ -44,3 +44,16 @@ services:
         ports:
             - '7878:7878'
         image: linuxserver/radarr
+    lidarr:
+        container_name: lidarr
+        restart: unless-stopped
+        volumes:
+            - '$HOME/container_files/lidarr:/config'
+            - '/mnt/torrents:/downloads'
+            - '/mnt/mdrive/music:/music'
+        environment:
+            - PGID=1000
+            - PUID=1000
+        ports:
+            - '8686:8686'
+        image: linuxserver/lidarr
