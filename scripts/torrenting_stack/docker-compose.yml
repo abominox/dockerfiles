@@ -1,7 +1,21 @@
-# docker-compose file for the Jackett/Radarr/Sonarr holy trifecta of automated HTPC goodness
+# docker-compose file for the PLEX/Jackett/Radarr/Sonarr/Lidarr 
+# five horsemen of automated HTPC goodness
 
 version: '3'
 services:
+    plex:
+        container_name: plex_server
+        restart: unless-stopped
+        environment:
+            - VERSION=latest
+            - PUID=1000
+            - PGID=1000
+            - TZ=America/New_York
+        volumes:
+            - '$HOME/container_files/plex/lib_data:/config'
+            - '/mnt/mdrive:/data'
+            - 'plex_transcode:/transcode'
+        image: linuxserver/plex
     jackett:
         container_name: jackett
         restart: unless-stopped
@@ -57,3 +71,6 @@ services:
         ports:
             - '8686:8686'
         image: linuxserver/lidarr
+    
+volumes:
+    plex_transcode:
