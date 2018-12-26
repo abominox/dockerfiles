@@ -6,16 +6,17 @@ services:
     plex:
         container_name: plex_server
         restart: unless-stopped
+        network_mode: "host"
         environment:
-            - VERSION=latest
+            - VERSION=public
             - PUID=1000
             - PGID=1000
             - TZ=America/New_York
         volumes:
             - '$HOME/container_files/plex/lib_data:/config'
             - '/mnt/mdrive:/data'
-            - 'plex_transcode:/transcode'
-        image: linuxserver/plex
+            - '$HOME/container_files/plex/transcode:/transcode_data'
+        image: linuxserver/plex:156
     jackett:
         container_name: jackett
         restart: unless-stopped
@@ -71,6 +72,3 @@ services:
         ports:
             - '8686:8686'
         image: linuxserver/lidarr
-    
-volumes:
-    plex_transcode:
