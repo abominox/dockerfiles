@@ -5,5 +5,5 @@ docker run -d \
 --restart=unless-stopped \
 -p 5900:5800 \
 -v /home/raxemremy/container_files/jdownloader2:/config:rw \
--v /mnt/mdrive/videos/youget:/output:rw \
+-v /mnt/drt/videos:/output:rw \
 jlesage/jdownloader-2

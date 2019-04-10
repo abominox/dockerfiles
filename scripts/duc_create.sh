@@ -1,8 +1,8 @@
 #!/bin/sh
 
-sudo docker run --name=noip -d \
+docker run --name=noip -d \
 --restart=always \
 --name duc_client \
 -v /etc/localtime:/etc/localtime \
--v /mnt/mdrive/misc/docker/noip_duc:/config \
+-v "$HOME"/container_files/duc_client:/config \
 coppit/no-ip

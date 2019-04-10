@@ -4,7 +4,7 @@
 version: '3'
 services:
     plex:
-        container_name: plex_server
+        container_name: plex_server_temp
         restart: unless-stopped
         network_mode: "host"
         environment:
