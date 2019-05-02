@@ -7,7 +7,7 @@ docker run --privileged  -d \
 -v /mnt/torrents:/downloads \
 -e "VPN_ENABLED=yes" \
 -e "LAN_NETWORK=192.168.1.0/24" \
--e "NAME_SERVERS=1.1.1.1,8.8.8.8" \
+-e "NAME_SERVERS=192.168.1.3,1.1.1.1,8.8.8.8" \
 -e "PUID=1000" \
 -e "PGID=1000" \
 -p 8080:8080 \
